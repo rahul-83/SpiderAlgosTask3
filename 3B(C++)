@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+int sum(int n, int arr[])
+{
+	int sum=0;
+	for(int i=0;i<n-1;i++)
+	{
+	   sum+=arr[i];	
+	}
+	return sum;
+}
+void insertionsort(int n,int arr[])
+{
+    for (int i = 1; i < n; ++i) { 
+            int key = arr[i]; 
+            int j = i - 1;  
+            while (j >= 0 && arr[j] > key) { 
+                arr[j + 1] = arr[j]; 
+                j = j - 1; 
+            } 
+            arr[j + 1] = key; 
+        } 
+}
+int main()
+{
+	int n,m;
+	cin>>n>>m;
+	int* arr = new int[m]; 
+	for(int i=0;i<m;i++)
+	{
+		cin>>arr[i];
+	}
+	insertionsort(m,arr);
+	if(n==1)
+	{
+		cout<<arr[m-1];
+	}
+	if(n==2)
+	{
+		if(sum(m,arr)>=arr[m-1])
+		{
+			cout<<arr[m-1];
+		}
+		else
+		{
+			cout<<sum(m,arr);
+		}
+	}
+	return 0;
+}
