@@ -1,0 +1,21 @@
+def isprime(num):
+    if num > 1:
+        for i in range(2, num):
+
+            if (num % i) == 0:
+                return False
+                break
+        else:
+            return True
+
+def primenumberarray(num):
+    array = []
+    for index in range(2,num):
+        if(isprime(index)==True):
+            array.append(index)
+    return array
+
+
+array2 = primenumberarray(n)
+k = len(array2)
+print(k*(k+1)/2)
